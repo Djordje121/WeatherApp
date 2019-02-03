@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -44,11 +45,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\HttpRequestHelper.cs" />
+    <Compile Include="Helpers\JsonConverter.cs" />
+    <Compile Include="Helpers\UnixTimestampConverter.cs" />
+    <Compile Include="Helpers\WindDirectionCalculator.cs" />
+    <Compile Include="Model\CurrentConditionDisplay.cs" />
+    <Compile Include="WeatherApiModel\Clouds.cs" />
+    <Compile Include="WeatherApiModel\Coordinates.cs" />
+    <Compile Include="WeatherApiModel\MainWeatherData.cs" />
+    <Compile Include="WeatherApiModel\SystemData.cs" />
+    <Compile Include="WeatherApiModel\Weather.cs" />
+    <Compile Include="WeatherApiModel\WeatherData.cs" />
+    <Compile Include="WeatherApiModel\Wind.cs" />
+    <Compile Include="Observer\IObserver.cs" />
+    <Compile Include="Observer\Observable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
