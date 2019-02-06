@@ -21,6 +21,7 @@ namespace csWeatherApp.WeatherApiModel
     {
         private bool initilized = true;
         private const int milisecPerMin = 60000;
+        private string request = "";
 
         public WeatherData()
         {
@@ -117,9 +118,14 @@ namespace csWeatherApp.WeatherApiModel
         public void CheckWeatherMesurments()
         {
             string requestUrl = "https://api.openweathermap.org/data/2.5/weather?id=3194360&units=metric&appid=803c3618a46f951af1c34f1662e3939c";
-            string json = HttpRequestHelper.GetApiRequest(requestUrl);
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("id", "3194360");
+            parameters.Add("units", "metric");
+            parameters.Add("appid", "803c3618a46f951af1c34f1662e3939c");
+       
+            string json = HttpRequestHelper.GetApiRequest(requestUrl, parameters);
             WeatherData response = JsonConverter.DeserilizeObject<WeatherData>(json);
-
+      
            
             if(response != null)
             {
