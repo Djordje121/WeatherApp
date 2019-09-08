@@ -18,12 +18,6 @@ namespace csWeatherApp.Helpers
                 webClient.QueryString.Add(parameter.Key, parameter.Value);
             }
             return webClient.DownloadString(requestUrl);
-            //var request = (HttpWebRequest)WebRequest.Create(requestUrl);
-            //var response = (HttpWebResponse)request.GetResponse();
-
-            //string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            //return responseString;
         }
     }
 }

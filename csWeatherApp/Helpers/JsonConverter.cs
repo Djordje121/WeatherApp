@@ -13,11 +13,13 @@ namespace csWeatherApp.Helpers
         // Deserialize a JSON stream to a object.  
         public static T DeserilizeObject<T>(string json)
         {
-            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
-            T deserializedUser = (T)ser.ReadObject(ms);
-            ms.Close();
-            return deserializedUser;
+            using (MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            {
+                DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(T));
+                T deserializedUser = (T)jsonSerializer.ReadObject(memoryStream);
+                memoryStream.Close();
+                return deserializedUser;
+            }
         }
     }
 }
