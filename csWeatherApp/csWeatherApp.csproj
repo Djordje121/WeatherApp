@@ -50,6 +50,7 @@
     <Compile Include="Helpers\UnixTimestampConverter.cs" />
     <Compile Include="Helpers\WindDirectionCalculator.cs" />
     <Compile Include="Model\CurrentConditionDisplay.cs" />
+    <Compile Include="Observer\IObservable.cs" />
     <Compile Include="WeatherApiModel\Clouds.cs" />
     <Compile Include="WeatherApiModel\Coordinates.cs" />
     <Compile Include="WeatherApiModel\MainWeatherData.cs" />

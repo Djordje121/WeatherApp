@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using csWeatherApp.Helpers;
 
-namespace csWeatherApp
+namespace csWeatherApp.Observer
 {
-    public interface IObserver
+    public interface IObservable
     {
-        void Update(object sender, EventArgs args);
+        void NotifyObservers(EventArgs e);
     }
 }

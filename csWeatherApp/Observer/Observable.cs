@@ -8,37 +8,18 @@ using System.Runtime.Serialization;
 namespace csWeatherApp
 {
     [DataContract]
-    class Observable
+    public abstract class Observable
     {
-        private List<IObserver> _observers;
-
+        public event EventHandler NotifyObserversEventHandler;
         private bool _stateChanged;
 
         public string name { get; set; }
 
-        public Observable()
+        public void NotifyObservers(EventArgs args)
         {
-            _observers = new List<IObserver>();
-        }
-
-        public void AddObserver(IObserver observer)
-        {
-            _observers.Add(observer);
-        }
-
-        public void RemoveObserver(IObserver observer)
-        {
-            _observers.Remove(observer);
-        }
-
-        public void NotifyObservers(EventArgs e)
-        {
-            if (_stateChanged)
+            if (_stateChanged && NotifyObserversEventHandler != null)
             {
-                foreach (IObserver observer in _observers)
-                {
-                    observer.Update(this, e);
-                }
+                NotifyObserversEventHandler.Invoke(this, args);
                 ClearStateChanged();
             }
         }

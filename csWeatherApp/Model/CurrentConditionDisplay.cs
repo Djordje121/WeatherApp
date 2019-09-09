@@ -7,7 +7,6 @@ namespace csWeatherApp
     class CurrentConditionDisplay : IObserver
     {
         private Observable _subject;
-
         private DateTime _dateCalculated;
         private DateTime _sunrise;
         private DateTime _sunset;
@@ -18,7 +17,7 @@ namespace csWeatherApp
             Subscribe();
 
         }
-        public void Update(object sender, EventArgs e)
+        public void Update(object sender, EventArgs args)
         {
             // using pull model
             WeatherData weatherData = sender as WeatherData;
@@ -50,13 +49,17 @@ namespace csWeatherApp
         public void Subscribe()
         {
             if (_subject != null)
-                _subject.AddObserver(this);
+            {
+                _subject.NotifyObserversEventHandler+= Update;
+            }
         }
 
         public void Unsubscribe()
         {
             if (_subject != null)
-                _subject.RemoveObserver(this);
+            {
+                _subject.NotifyObserversEventHandler -= Update;
+            }
         }       
     }
 }

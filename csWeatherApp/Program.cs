@@ -15,16 +15,15 @@ namespace csWeatherApp
 {
     class Program
     {
+        public static int x;
         static void Main()
         {
             WeatherData weatherData = new WeatherData();
             CurrentConditionDisplay currentConditionDisplay = new CurrentConditionDisplay(weatherData);
             weatherData.StartWeatherTracking(2);
-         
-        
-      
-           
+
+
             Console.ReadLine();
         }
-    }
+    }   
 }
