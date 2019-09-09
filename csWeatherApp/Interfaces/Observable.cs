@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace csWeatherApp
+namespace csWeatherApp.Interfaces
 {
     [DataContract]
     public abstract class Observable

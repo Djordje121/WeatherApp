@@ -1,6 +1,7 @@
 ﻿using csWeatherApp.Helpers;
 using System;
 using csWeatherApp.WeatherApiModel;
+using csWeatherApp.Interfaces;
 
 namespace csWeatherApp
 {

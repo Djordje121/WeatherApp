@@ -9,6 +9,7 @@ using System.IO;
 using csWeatherApp.Helpers;
 using System.Threading;
 using System.Configuration;
+using csWeatherApp.Interfaces;
 
 namespace csWeatherApp.WeatherApiModel
 {

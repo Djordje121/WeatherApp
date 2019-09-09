@@ -50,8 +50,8 @@
     <Compile Include="Helpers\UnixTimestampConverter.cs" />
     <Compile Include="Helpers\WindDirectionCalculator.cs" />
     <Compile Include="Model\CurrentConditionDisplay.cs" />
-    <Compile Include="Observer\IDisplay.cs" />
-    <Compile Include="Observer\IObservable.cs" />
+    <Compile Include="Interfaces\IDisplay.cs" />
+    <Compile Include="Interfaces\IObservable.cs" />
     <Compile Include="WeatherApiModel\Clouds.cs" />
     <Compile Include="WeatherApiModel\Coordinates.cs" />
     <Compile Include="WeatherApiModel\MainWeatherData.cs" />
@@ -59,8 +59,8 @@
     <Compile Include="WeatherApiModel\Weather.cs" />
     <Compile Include="WeatherApiModel\WeatherData.cs" />
     <Compile Include="WeatherApiModel\Wind.cs" />
-    <Compile Include="Observer\IObserver.cs" />
-    <Compile Include="Observer\Observable.cs" />
+    <Compile Include="Interfaces\IObserver.cs" />
+    <Compile Include="Interfaces\Observable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
