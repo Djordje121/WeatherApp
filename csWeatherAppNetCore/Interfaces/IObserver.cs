@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csWeatherApp.Interfaces
+namespace csWeatherAppNetCore.Interfaces
 {
-    public interface IDisplay
+    public interface IObserver
     {
-        void Display();
+        void Update(object sender, EventArgs args);
     }
 }

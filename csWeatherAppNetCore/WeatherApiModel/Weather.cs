@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csWeatherApp.WeatherApiModel
+namespace csWeatherAppNetCore.WeatherApiModel
 {
     /// <summary>
     ///  Stores weather condition description

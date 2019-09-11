@@ -1,9 +1,9 @@
-﻿using csWeatherApp.Helpers;
+﻿using csWeatherAppNetCore.Helpers;
 using System;
-using csWeatherApp.WeatherApiModel;
-using csWeatherApp.Interfaces;
+using csWeatherAppNetCore.WeatherApiModel;
+using csWeatherAppNetCore.Interfaces;
 
-namespace csWeatherApp
+namespace csWeatherAppNetCore
 {
     class CurrentConditionDisplay : IObserver, IDisplay
     {

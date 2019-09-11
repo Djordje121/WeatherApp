@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csWeatherApp.Helpers
+namespace csWeatherAppNetCore.Helpers
 {
     class WindDirectionCalculator
     {

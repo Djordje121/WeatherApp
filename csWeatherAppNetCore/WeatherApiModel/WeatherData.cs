@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Net;
 using System.IO;
-using csWeatherApp.Helpers;
 using System.Threading;
 using System.Configuration;
-using csWeatherApp.Interfaces;
+using csWeatherAppNetCore.Helpers;
+using csWeatherAppNetCore.Interfaces;
 
-namespace csWeatherApp.WeatherApiModel
+namespace csWeatherAppNetCore.WeatherApiModel
 {
     /// <summary>
     ///  Used for storing web api weather response

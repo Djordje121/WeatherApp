@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Json;
 
-namespace csWeatherApp.Helpers
+namespace csWeatherAppNetCore.Helpers
 {
     class JsonConverter
     {
