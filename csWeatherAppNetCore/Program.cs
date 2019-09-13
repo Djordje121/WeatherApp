@@ -1,4 +1,5 @@
 ﻿using csWeatherAppNetCore.WeatherApiModel;
+using csWeatherAppNetCore.Model;
 using System;
 
 namespace csWeatherAppNetCore
@@ -7,9 +8,9 @@ namespace csWeatherAppNetCore
     {
         static void Main(string[] args)
         {
-            WeatherData weatherData = new WeatherData();
-            CurrentConditionDisplay currentConditionDisplay = new CurrentConditionDisplay(weatherData);
-            weatherData.StartWeatherTracking(2);
+            WeatherDataTracker weatherDataTracker = new WeatherDataTracker();
+            CurrentConditionDisplay currentConditionDisplay = new CurrentConditionDisplay(weatherDataTracker);
+            weatherDataTracker.StartWeatherTracking(2);
         }
     }
 }

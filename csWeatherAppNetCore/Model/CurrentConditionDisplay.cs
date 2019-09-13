@@ -2,6 +2,7 @@
 using System;
 using csWeatherAppNetCore.WeatherApiModel;
 using csWeatherAppNetCore.Interfaces;
+using csWeatherAppNetCore.Model;
 
 namespace csWeatherAppNetCore
 {
@@ -21,8 +22,9 @@ namespace csWeatherAppNetCore
 
         }
         public void Update(object sender, EventArgs args)
-        {   
-            _weatherData = sender as WeatherData;
+        {
+            WeatherDataTracker wTracker = sender as WeatherDataTracker;
+            _weatherData = wTracker?.wData;
             if (_weatherData != null)
             {
                 Display();

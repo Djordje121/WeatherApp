@@ -15,19 +15,10 @@ namespace csWeatherAppNetCore.WeatherApiModel
 {
     /// <summary>
     ///  Used for storing web api weather response
-    ///  TODO: add weather tracking impelmentation in different thread
     /// </summary>
     [DataContract]
-    class WeatherData : Observable
+    class WeatherData : EventArgs
     {
-        private bool initilized = true;
-        private const int milisecPerMin = 60000;
-        private string request = "";
-
-        public WeatherData()
-        {
-            initilized = true;
-        }
         /// <summary>
         /// City id
         /// </summary>
@@ -94,63 +85,5 @@ namespace csWeatherAppNetCore.WeatherApiModel
         [DataMember(Name = "sys")]
         public SystemData SystemData { get; private set; }
 
-        private void MesurmentsChanged()
-        {
-            SetStateChanged();
-            NotifyObservers();
-        }
-
-        private void FillObject(WeatherData data)
-        {
-            CityId = data.CityId;
-            CityName = data.CityName;
-            Visibility = data.Visibility;
-            Cod = data.Cod;
-            DateCalculated = data.DateCalculated;
-            Coordinates = data.Coordinates;
-            WeatherList = data.WeatherList;
-            MainWeatherData = data.MainWeatherData;
-            Wind = data.Wind;
-            Clouds = data.Clouds;
-            SystemData = data.SystemData;
-
-        }
-
-        public void CheckWeatherMesurments()
-        {
-            string requestUrl = "https://api.openweathermap.org/data/2.5/weather?id=3194360&units=metric&appid=803c3618a46f951af1c34f1662e3939c";
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("id", "3194360");
-            parameters.Add("units", "metric");
-            parameters.Add("appid", "803c3618a46f951af1c34f1662e3939c");
-       
-            string json = HttpRequestHelper.GetApiRequest(requestUrl, parameters);
-            WeatherData response = JsonConverter.DeserilizeObject<WeatherData>(json);
-      
-           
-            if(response != null)
-            {
-                if(initilized)
-                {
-                    FillObject(response);
-                    initilized = false;
-                    MesurmentsChanged();
-                }
-                else if(response.DateCalculated > this.DateCalculated)
-                {
-                    FillObject(response);
-                    MesurmentsChanged();
-                }        
-            }
-        }
-
-        public void StartWeatherTracking(int minutes)
-        {
-            while(true)
-            {
-                CheckWeatherMesurments();
-                Thread.Sleep(milisecPerMin * minutes); 
-            }
-        }  
     }
 }
