@@ -13,9 +13,9 @@ namespace csWeatherAppNetCore.Helpers
         // Deserialize a JSON stream to a object.  
         public static T DeserilizeObject<T>(string json)
         {
-            using (MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            using (var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
             {
-                DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(T));
+                var jsonSerializer = new DataContractJsonSerializer(typeof(T));
                 T deserializedUser = (T)jsonSerializer.ReadObject(memoryStream);
                 memoryStream.Close();
                 return deserializedUser;

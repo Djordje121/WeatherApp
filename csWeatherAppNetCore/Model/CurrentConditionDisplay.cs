@@ -23,10 +23,13 @@ namespace csWeatherAppNetCore
         }
         public void Update(object sender, EventArgs args)
         {
-            WeatherDataTracker wTracker = sender as WeatherDataTracker;
+            var wTracker = sender as WeatherDataTracker;
             _weatherData = wTracker?.wData;
             if (_weatherData != null)
             {
+                _dateCalculated = UnixTimestampConverter.UnixTimestampToDateTime(_weatherData.DateCalculated);
+                _sunrise = UnixTimestampConverter.UnixTimestampToDateTime(_weatherData.SystemData.Sunrise);
+                _sunset = UnixTimestampConverter.UnixTimestampToDateTime(_weatherData.SystemData.Sunset);
                 Display();
             }
         }
@@ -49,7 +52,7 @@ namespace csWeatherAppNetCore
 
         // TODO: Find better solution for this display logic.
         public void Display()
-        {
+        {        
             // Using pull method.
             Console.WriteLine($"Calculated: {_dateCalculated}");
             Console.WriteLine($"City: {_weatherData.CityName} Country {_weatherData.SystemData.Country}");

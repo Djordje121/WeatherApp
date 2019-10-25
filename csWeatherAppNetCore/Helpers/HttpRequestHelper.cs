@@ -12,8 +12,8 @@ namespace csWeatherAppNetCore.Helpers
     {
         public static string GetApiRequest(string requestUrl, Dictionary<string, string> parameters)
         {
-            WebClient webClient = new WebClient();
-            foreach(KeyValuePair<string, string> parameter in parameters)
+            var webClient = new WebClient();
+            foreach (KeyValuePair<string, string> parameter in parameters)
             {
                 webClient.QueryString.Add(parameter.Key, parameter.Value);
             }

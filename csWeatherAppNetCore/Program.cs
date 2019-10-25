@@ -8,8 +8,8 @@ namespace csWeatherAppNetCore
     {
         static void Main(string[] args)
         {
-            WeatherDataTracker weatherDataTracker = new WeatherDataTracker();
-            CurrentConditionDisplay currentConditionDisplay = new CurrentConditionDisplay(weatherDataTracker);
+            var weatherDataTracker = new WeatherDataTracker();
+            var currentConditionDisplay = new CurrentConditionDisplay(weatherDataTracker);
             weatherDataTracker.StartWeatherTracking(2);
         }
     }
